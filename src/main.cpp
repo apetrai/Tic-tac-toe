@@ -1,34 +1,51 @@
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <vector>
+
 #define LINE printf("\t\t|---|---|---|");
 
 int main() {
     int choice = 0;
     char winner = 0;
-    std::string board[9] = {
-        "0", "1", "2",
-        "3", "4", "5",
-        "6", "7", "8"
-    };
+    std::string board[9] = { "0", "1", "2", "3", "4", "5" ,"6", "7", "8" };
     std::string player1;
     std::string player2;
-    std::string play1, play2;
+    char play1, play2;
+    std::fstream Username_filecheck(".username");
 
+  if(!Username_filecheck) {
     std::cout << "Username for player 1; ";
     getline(std::cin, player1);
     system("clear");
     std::cout << "Username for player 2; ";
     getline(std::cin, player2);
     system("clear");
-
-    std::cout << "Each player has to select to play either as X or O.\n";
-    std::cout << player1 << " you are; ";
-    std::cin >> play1;
-    system("clear");
-    std::cout << player2 << " you are; ";
-    std::cin >> play2;
-    system("clear");
-
+        std::cout << "Each player has to select to play either as X or O.\n";
+        std::cout << player1 << " you are; ";
+        std::cin >> play1;
+        system("clear");
+        std::cout << player2 << " you are; ";
+        std::cin >> play2;
+        system("clear");
+    std::ofstream Username(".username");
+    char buffer = toupper(play1);
+    play1 = buffer;
+    buffer = toupper(play2);
+    play2 = buffer;
+    Username << player1 << "\n" << play1 << "\n" << player2 << "\n" << play2;
+  }
+  else {
+      std::vector<std::string> ContentsofFile(5);
+      std::string buffer;
+      while(Username_filecheck >> buffer) { ContentsofFile.insert(ContentsofFile.begin(), buffer); }
+      player1 = ContentsofFile[1];
+      char* play_buffer = const_cast<char*>(ContentsofFile[0].c_str());
+      play1 = *play_buffer;
+      player2 = ContentsofFile[2];
+      play_buffer = const_cast<char*>(ContentsofFile[3].c_str());
+    play2 = *play_buffer;
+  }
     while(winner == 0) {
      system("clear");
      LINE;
