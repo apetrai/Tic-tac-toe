@@ -1,4 +1,9 @@
-# A very basic tictactoe written in C++.
-
+# tictactoe-cpp
+## A very basic tictactoe console game written in C++.
 ### ⚙️ Compilation
-Make sure you have installed g++ before you continue. You can clone this repository, or you can download the finished source code of a [version](https://github.com/apetrai/tictactoe-cpp/releases), e.g. v.0.0.1-alpha. Go to the directory where this repository is located. To compile, paste the following: ```g++ main.cpp -o tictactoe-cpp``` then to run ``` ./tictactoe-cpp ```
+
+<ol>
+  <li>Make sure you have installed g++ before you continue.</li> 
+  <li>You can clone this repository, or you can download the finished source code of a <a href="github.com/apetrai/tictactoe-cpp/releases">version.</a> (Recommended)</li>
+  <li>Go to the directory where this repository is located. To compile, paste the following: <code>g++ main.cpp -o tictactoe-cpp</code> then to run: <br> <code> ./tictactoe-cpp </code> </br> </li>
+</ol>
